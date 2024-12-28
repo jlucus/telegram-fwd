@@ -1,7 +1,2 @@
-telebot
-json
-os
-sys
-time
-requests
-importlib
+telepot==12.7
+requests==2.26.0
