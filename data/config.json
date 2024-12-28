@@ -1,0 +1,6 @@
+{
+  "token": "YOUR_BOT_TOKEN_HERE",
+  "password": "changeme",
+  "allowed_users": [],
+  "channel_ids": []
+}
