@@ -4,9 +4,9 @@
 import json
 import os
 import sys
-import telebot
+import telepot
 import time
-from telebot.loop import MessageLoop
+from telepot.loop import MessageLoop
 from filters import filter_links, filter_hashtags, filter_mentions
 from handlers import handle_message
 from menu import show_menu
@@ -30,7 +30,7 @@ if 'token' not in config or config['token'] == "":
     sys.exit("No token defined. Define it in the config.json file.")
 TOKEN = config['token']
 
-bot = telebot.Bot(TOKEN)
+bot = telepot.Bot(TOKEN)
 
 def handle(msg):
     print("Message: " + str(msg))
