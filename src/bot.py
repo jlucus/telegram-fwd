@@ -11,18 +11,39 @@ def load_json(file_path):
 
 def save_json(file_path, data):
     with open(file_path, 'w') as f:
-        json.dump(data, f)
+        json.dump(data, f, indent=4)
 
-chats = load_json('data/chats.json')
-allowed = set(load_json('data/allowed.json'))
-config = load_json('data/config.json')
+# Ensure the data directory exists
+data_dir = 'data'
+if not os.path.exists(data_dir):
+    os.makedirs(data_dir)
+
+# Ensure the config file exists
+config_path = os.path.join(data_dir, 'config.json')
+if not os.path.isfile(config_path):
+    with open(config_path, 'w') as f:
+        json.dump({}, f)
+
+chats = load_json(os.path.join(data_dir, 'chats.json'))
+allowed = set(load_json(os.path.join(data_dir, 'allowed.json')))
+config = load_json(config_path)
+
+# Debug statement to check if config is loaded correctly
+print("Config loaded:", config)
 
 if 'token' not in config or config['token'] == "":
-    sys.exit("No token defined. Define it in the config.json file.")
-TOKEN = config['token']
+    token = input("Enter your Telegram bot token: ")
+    config['token'] = token
+    save_json(config_path, config)
+    print("Token saved to config.json")
+else:
+    token = config['token']
+
+# Debug statement to check if token is retrieved correctly
+print("Token retrieved:", token)
 
 try:
-    bot = telepot.Bot(TOKEN)
+    bot = telepot.Bot(token)
 except Exception as e:
     sys.exit(f"Failed to initialize bot: {e}")
 
