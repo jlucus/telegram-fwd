@@ -63,3 +63,21 @@ def test_bot():
 
 # Test the bot connection
 test_bot()
+
+# Delete webhook if it exists
+try:
+    bot.deleteWebhook()
+    print("Webhook deleted successfully.")
+except Exception as e:
+    print(f"Failed to delete webhook: {e}")
+
+# Main bot operation logic
+print("Bot is running...")
+
+# Add your main bot logic here
+# For example, you can set up message handling
+bot.message_loop(handle)
+
+# Keep the program running
+while True:
+    pass
