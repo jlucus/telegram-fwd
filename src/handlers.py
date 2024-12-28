@@ -1,5 +1,5 @@
 def handle_message(msg):
-    content_type, chat_type, chat_id = telepot.glance(msg)
+    content_type, chat_type, chat_id = telebot.glance(msg)
     txt = msg.get('text', '') or msg.get('caption', '')
 
     if txt.startswith('/add'):

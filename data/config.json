@@ -1,6 +1,9 @@
 {
-  "token": "YOUR_BOT_TOKEN_HERE",
-  "password": "changeme",
-  "allowed_users": [],
+  "token": "TELEGRAM_BOT_TOKEN",
+  "password": "TELEGRAM_BOT_PASSWORD",
+  "allowed_users": [
+    "892906751",
+    "892906751"
+  ],
   "channel_ids": []
 }
